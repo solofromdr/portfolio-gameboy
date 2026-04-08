@@ -1,16 +1,17 @@
 import './GameBoy.css'
+import { useRef, useState } from 'react'
 
 function App() {
+  const iframeRef = useRef(null)
 
-  const fireKey = (key) => {
-  window.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true }))
-}
-  const releaseKey = (key) => {
-  window.dispatchEvent(new KeyboardEvent('keyup', { key, bubbles: true }))
-}
+  const [started, setStarted] = useState(false)
+
+  const refocusIframe = () => {
+    iframeRef.current?.focus()
+  }
 
   return (
-    <div className="room">
+    <div className="room" onMouseDown={refocusIframe}>
       <div className="vignette" />
 
       <div className="gba-shell">
@@ -31,12 +32,21 @@ function App() {
           </div>
 
           {/* Centro: pantalla */}
-          <div className="screen-inner">
-            <iframe
-              src="https://roo-portfolio-rpg.netlify.app"
-              title="Portfolio RPG"
-              scrolling="no"
-              />
+        <div className="screen-inner" onClick={() => { setStarted(true); iframeRef.current?.focus() }}>
+          <iframe
+            ref={iframeRef}
+            src="https://roo-portfolio-rpg.netlify.app"
+            title="Portfolio RPG"
+            scrolling="no"
+            tabIndex={0}
+            style={{ pointerEvents: started ? 'auto' : 'none' }}
+          />
+          {!started && (
+            <div className="press-start-overlay">
+              <span>CLICK TO START</span>
+            </div>
+          )}
+        </div>
             {/* Reflejo de pantalla */}
             <div className="screen-glare" />
 
@@ -63,7 +73,7 @@ function App() {
           </div>
           <div className="start-select">
             <div className="ss-group">
-              <button className="btn-ss" onPointerDown={() => fireKey('Escape')}>SELECT</button>
+              <button className="btn-ss" onPointerDown={() => fireKey('')}>SELECT</button>
             </div>
             <div className="ss-group">
               <button className="btn-ss" onPointerDown={() => fireKey('Enter')}>START</button>

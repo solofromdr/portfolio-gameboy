@@ -311,3 +311,20 @@ button { cursor: pointer; border: none; font-family: 'Press Start 2P', monospace
     margin-bottom: -430px;
   }
 }
+
+.press-start-overlay {
+  position: absolute;
+  inset: 0;
+  background: #0a0014;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+}
+.press-start-overlay span {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: var(--purple-soft);
+  animation: blink 1s step-end infinite;
+}
