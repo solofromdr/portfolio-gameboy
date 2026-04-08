@@ -1,28 +1,25 @@
+
 import './GameBoy.css'
 import { useRef, useState } from 'react'
 
 function App() {
   const iframeRef = useRef(null)
-
   const [started, setStarted] = useState(false)
 
-  const refocusIframe = () => {
-    iframeRef.current?.focus()
+  const fireKey = (key) => {
+    iframeRef.current?.contentWindow?.postMessage({ type: 'keydown', key }, '*')
+  }
+  const releaseKey = (key) => {
+    iframeRef.current?.contentWindow?.postMessage({ type: 'keyup', key }, '*')
   }
 
   return (
-    <div className="room" onMouseDown={refocusIframe}>
+    <div className="room">
       <div className="vignette" />
-
       <div className="gba-shell">
-        {/* Hombros superiores */}
         <div className="shoulder shoulder-left" />
         <div className="shoulder shoulder-right" />
-
-        {/* Cuerpo principal */}
         <div className="gba-body">
-
-          {/* Panel izquierdo: D-pad decorativo */}
           <div className="side-panel left-panel">
             <div className="dpad">
               <div className="dpad-v" />
@@ -30,34 +27,30 @@ function App() {
               <div className="dpad-center" />
             </div>
           </div>
-
-          {/* Centro: pantalla */}
-        <div className="screen-inner" onClick={() => { setStarted(true); iframeRef.current?.focus() }}>
-          <iframe
-            ref={iframeRef}
-            src="https://roo-portfolio-rpg.netlify.app"
-            title="Portfolio RPG"
-            scrolling="no"
-            tabIndex={0}
-            style={{ pointerEvents: started ? 'auto' : 'none' }}
-          />
-          {!started && (
-            <div className="press-start-overlay">
-              <span>CLICK TO START</span>
+          <div className="screen-section">
+            <div className="screen-bezel">
+              <div className="screen-inner" onClick={() => { setStarted(true); iframeRef.current?.focus() }}>
+                <iframe
+                  ref={iframeRef}
+                  src="https://roo-portfolio-rpg.netlify.app"
+                  title="Portfolio RPG"
+                  scrolling="no"
+                  tabIndex={0}
+                  style={{ pointerEvents: started ? 'auto' : 'none' }}
+                />
+                {!started && (
+                  <div className="press-start-overlay">
+                    <span>CLICK TO START</span>
+                  </div>
+                )}
+              </div>
+              <div className="screen-glare" />
             </div>
-          )}
-        </div>
-            {/* Reflejo de pantalla */}
-            <div className="screen-glare" />
-
-            {/* LED */}
             <div className="led-row">
               <div className="led" />
               <span className="led-label">POWER</span>
             </div>
           </div>
-
-          {/* Panel derecho: botones A/B */}
           <div className="side-panel right-panel">
             <div className="ab-buttons">
               <button className="btn-ab btn-a" onPointerDown={() => fireKey('Z')} onPointerUp={() => releaseKey('Z')}>A</button>
@@ -65,18 +58,16 @@ function App() {
             </div>
           </div>
         </div>
-
-        {/* Franja inferior: Start/Select + altavoces */}
         <div className="gba-bottom">
           <div className="speaker-grille left-speaker">
             {[...Array(6)].map((_, i) => <div key={i} className="speaker-dot" />)}
           </div>
           <div className="start-select">
             <div className="ss-group">
-              <button className="btn-ss" onPointerDown={() => fireKey('')}>SELECT</button>
+              <button className="btn-ss" onPointerDown={() => fireKey(' ')} onPointerUp={() => releaseKey(' ')}>SELECT</button>
             </div>
             <div className="ss-group">
-              <button className="btn-ss" onPointerDown={() => fireKey('Enter')}>START</button>
+              <button className="btn-ss" onPointerDown={() => fireKey('Enter')} onPointerUp={() => releaseKey('Enter')}>START</button>
             </div>
           </div>
           <div className="speaker-grille right-speaker">
