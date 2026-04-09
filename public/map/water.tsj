@@ -1,0 +1,14 @@
+{ "columns":28,
+ "image":"..\/..\/Downloads\/Ninja Adventure - Asset Pack\/Ninja Adventure - Asset Pack\/Backgrounds\/Tilesets\/TilesetWater.png",
+ "imageheight":272,
+ "imagewidth":448,
+ "margin":0,
+ "name":"water",
+ "spacing":0,
+ "tilecount":476,
+ "tiledversion":"1.12.0",
+ "tileheight":16,
+ "tilewidth":16,
+ "type":"tileset",
+ "version":"1.10"
+}

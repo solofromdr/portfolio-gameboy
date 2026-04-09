@@ -1,0 +1,14 @@
+{ "columns":20,
+ "image":"..\/..\/Downloads\/Ninja Adventure - Asset Pack\/Ninja Adventure - Asset Pack\/Backgrounds\/Tilesets\/TilesetRelief.png",
+ "imageheight":192,
+ "imagewidth":320,
+ "margin":0,
+ "name":"relief",
+ "spacing":0,
+ "tilecount":240,
+ "tiledversion":"1.12.0",
+ "tileheight":16,
+ "tilewidth":16,
+ "type":"tileset",
+ "version":"1.10"
+}

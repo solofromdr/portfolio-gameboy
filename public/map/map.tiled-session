@@ -1,0 +1,77 @@
+{
+    "activeFile": "map.json",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "#floor": {
+            "scaleInEditor": 1
+        },
+        "battle.tmj": {
+            "scale": 2,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 192.5,
+                "y": 158.5
+            }
+        },
+        "battle.tmj#floordungeon": {
+            "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
+        "battle.tmj#wallsdungeon": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "map.json": {
+            "scale": 1.5,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 339.3333333333333,
+                "y": 314.6666666666667
+            }
+        },
+        "map.json#floor": {
+            "scaleInDock": 1.5
+        },
+        "map.json#floor2": {
+            "scaleInDock": 1
+        },
+        "map.json#floordetails": {
+            "scaleInDock": 1.5
+        },
+        "map.json#nature": {
+            "scaleInDock": 1.5
+        },
+        "map.json#relief": {
+            "scaleInDock": 1.5
+        },
+        "map.json#water": {
+            "scaleInDock": 1.5
+        }
+    },
+    "last.exportedFilePath": "C:/Users/Bless/portafolio-rpg/map",
+    "last.imagePath": "C:/Users/Bless/Downloads/Ninja Adventure - Asset Pack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior",
+    "map.height": 15,
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "json",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 20,
+    "openFiles": [
+        "map.json"
+    ],
+    "project": "map.tiled-project",
+    "recentFiles": [
+        "map.json"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}
